@@ -96,9 +96,7 @@ https://github.com/NVlabs/edm
 
 ## File to be used
 
-In original EDM file:
-
-use:
+In original EDM file use:
 
 ```text
 generate_cab.py
