@@ -94,13 +94,9 @@ https://github.com/NVlabs/edm
 
 ---
 
-## File Replacement
+## File to be used
 
-Instead of the original EDM file:
-
-```text
-generate.py
-```
+In original EDM file:
 
 use:
 
