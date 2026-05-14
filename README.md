@@ -212,7 +212,7 @@ python sample.py \
 
 ---
 
-# 3. Qwen-Image / Diffusers Integration
+# 3. Qwen-Image and HunyuanVideo / Diffusers Integration
 
 Base repository:
 
