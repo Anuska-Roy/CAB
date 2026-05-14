@@ -20,12 +20,12 @@ This repository contains modified implementations for:
 ```text
 CAB/
 ├── README.md
-├── generate_cab.py
 ├── gaussian_diffusion.py
-├── sample.py
-├── scheduling_cab.py
+├── generate_cab.py
 ├── pipeline_qwenimage.py
-└── qwen.py
+├── qwen.py
+├── sample.py
+└── scheduling_cab.py
 ```
 
 ---
