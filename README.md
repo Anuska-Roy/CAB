@@ -160,7 +160,7 @@ Inside the original DiT repository:
 diffusion/gaussian_diffusion.py
 ```
 
-with:
+with given:
 
 ```text
 gaussian_diffusion.py
@@ -176,7 +176,7 @@ from this repository.
 sample.py
 ```
 
-with:
+with given:
 
 ```text
 sample.py
