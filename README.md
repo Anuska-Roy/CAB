@@ -76,7 +76,7 @@ https://cocodataset.org/#captions-2015
 
 ## EvalCrafter
 
-Used for text-video alignment, temporal consistency, and visual quality evaluation.
+Used for HunyuanVideo text-to-video evaluation.
 
 Repository:  
 https://github.com/evalcrafter/EvalCrafter
