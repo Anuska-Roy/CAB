@@ -230,7 +230,7 @@ scheduling_cab.py
 
 from this repository.
 
-After minimal change in __init__.py the scheduler can then be imported as:
+After minimal change in `__init__.py` the scheduler can then be imported as:
 
 ```python
 from diffusers import CABScheduler
