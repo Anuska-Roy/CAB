@@ -519,12 +519,10 @@ class CABScheduler(SchedulerMixin, ConfigMixin):
         alpha_cur_safe = self._safe_preserve_sign(alpha_cur, self.eps_bn)
         alpha_next_safe = self._safe_preserve_sign(alpha_next, self.eps_bn)
     
-        # YOUR lambda math, not DPM log lambda
         lambda_cur = sigma_cur / alpha_cur_safe
         lambda_next = sigma_next / alpha_next_safe
         h_lambda = lambda_next - lambda_cur
     
-        # General converted quantity
         if self.config.prediction_type == "flow_prediction":
             eps_cur = sample + alpha_cur * model_output
         else:
@@ -542,7 +540,6 @@ class CABScheduler(SchedulerMixin, ConfigMixin):
         # ---------------------------------------------------------
         # Step 1:
         # flow      -> AB2 in t-space
-        # non-flow  -> non-uniform AB2 in lambda-space
         # ---------------------------------------------------------
         elif self.prev_prev_eps is None:
     
@@ -583,7 +580,7 @@ class CABScheduler(SchedulerMixin, ConfigMixin):
             self.prev_h_lambda = h_lambda.detach().clone()
     
         # ---------------------------------------------------------
-        # Step >= 2: CAB in your lambda-space
+        # Step >= 2: CAB in lambda-space
         # ---------------------------------------------------------
         else:
             h_prev_safe = self._safe_preserve_sign(self.prev_h_lambda, self.eps_bn)
@@ -639,13 +636,10 @@ class CABScheduler(SchedulerMixin, ConfigMixin):
     
             self.prev_prev_h_lambda = self.prev_h_lambda.detach().clone()
             self.prev_h_lambda = h_lambda.detach().clone()
-    
-        # Store current model/sample
+
         self.last_model = model_output.detach().clone()
         self.last_sample = sample.detach().clone()
     
-       
-        # For flow, keep prev_eps=None so second step becomes t-space AB2.
         if (
             self.config.prediction_type != "flow_prediction"
             and self.prev_eps is None
